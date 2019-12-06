@@ -14,26 +14,35 @@
 
     <h2>Ajout d'un Cours</h2>
 
-    <s:form action="cours_ajouter">
-        <s:textfield name="unCours.matiere" label="Matière" requiredLabel="true" />
+    <s:form action="cours_ajouter" method="post" validate="true">
+        <s:select name="unCours.matiere" label="MatiÃ¨re"
+                  list="listMatiere" listKey="codeMatiere" listValue="libelleMatiere"
+                  
+                  requiredLabel="true"/> 
         <s:select name="unCours.classe" label="Formation"
-                  list="listClasse" value=""
-                  emptyOption="true"
-                  requiredLabel="true"/> 
-        <s:textfield name="unCours.enseignant" label="Enseignant" requiredLabel="true" />
-        <s:textfield name="unCours.salle" label="Salle" requiredLabel="true" />
+                  list="listClasse" listKey="codeClasse" listValue="libelleClasse"
+                  
+                  requiredLabel="true"/>         
+        <s:select name="unCours.enseignant" label="Enseignant"
+                  list="listEnseignant" listKey="matricule" listValue="prenomEtNom"
+                  
+                  requiredLabel="true"/>        
+        <s:select name="unCours.salle" label="Salle"
+                  list="listSalle" listKey="nomSalle" listValue="nomSalle"
+                  
+                  requiredLabel="true"/>
         <s:select name="unCours.jour" label="Jour"
-                  list="listJour" value=""
-                  emptyOption="true"
+                  list="listJour" listKey="nomJour" listValue="nomJour"
+                  
                   requiredLabel="true"/>   
-		<s:select name="unCours.HeureDebut" label="Heure début"
-                  list="listHeure" value=""
-                  emptyOption="true"
+    <s:select name="unCours.HeureDebut" label="Heure dÃ©but"
+                  list="listHeure" listKey="identifiant" listValue="nomHeure"
+                  
                   requiredLabel="true"/> 
-		<s:select name="unCours.HeureFin" label="Heure fin"
-                  list="listHeure" value=""
-                  emptyOption="true"
-                  requiredLabel="true"/>                                       	
+    <s:select name="unCours.HeureFin" label="Heure fin"
+                  list="listHeure" listKey="identifiant" listValue="nomHeure"
+                  
+                  requiredLabel="true"/>                                        
         <s:submit value="Enregistrer"/>
     </s:form>
 </body>
