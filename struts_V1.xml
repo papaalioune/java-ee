@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+    <package name="default" extends="struts-default">
+        <!-- Action par défaut -->
+        <default-action-ref name="index" />
+
+        <!-- Action "index" -->
+        <action name="index">
+            <result>/WEB-INF/jsp/index.jsp</result>
+        </action>
+        
+        <!-- Action listant les Cours -->
+        <action name="cours_list"
+                class="com.uasz.mmp.action.GestionCoursAction"
+                method="doList">
+            <result>/WEB-INF/jsp/cours/list.jsp</result>
+        </action>
+        <!-- Action affichant le détail d'un Cours -->
+        <action name="cours_detail"
+                class="com.uasz.mmp.action.GestionCoursAction"
+                method="doDetail">
+            <result name="success">/WEB-INF/jsp/cours/detail.jsp</result>
+            <result name="error">/WEB-INF/jsp/error.jsp</result>
+        </action>
+        
+        <!-- Action supprimant un Cours -->
+        <action name="cours_suppression"
+                class="com.uasz.mmp.action.GestionCoursAction"
+                method="doSuppression">
+            <result name="success" type="redirectAction">
+                <param name="actionName">cours_list</param>             
+            </result>
+            <result name="error">/WEB-INF/jsp/error.jsp</result>
+        </action>            
+        
+    </package>
+</struts>
